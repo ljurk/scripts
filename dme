@@ -1,0 +1,2 @@
+#!/bin/bash
+dmenu -fn 'DejaVu Sans Mono for Powerline-14'
