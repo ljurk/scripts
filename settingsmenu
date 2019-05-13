@@ -1,0 +1,46 @@
+#!/bin/bash
+
+DMENU="/home/ljurk/.scripts/dme"
+
+disk() {
+    chosen=$(printf "%s\\ngsmartcontrol\\ngparted" | $DMENU -i -p "Select display arangement:")
+    case "$chosen" in
+	"gsmartcontrol") gksu gsmartcontrol ; exit ;;
+	"gparted") gparted ; exit ;;
+	*) ;;
+    esac
+}
+
+audio() {
+    chosen=$(printf "%s\\ncadence\\npavucontrol" | $DMENU -i -p "Select display arangement:")
+    case "$chosen" in
+	"cadence") cadence ; exit ;;
+	"pavucontrol") pavucontrol ; exit ;;
+	*) ;;
+    esac
+}
+
+power() {
+    chosen=$(printf "%s\\nxfce4-power-manager-settings" | $DMENU -i -p "Select display arangement:")
+    case "$chosen" in
+	"xfce4-power-manager-settings") xfce4-power-manager-settings ; exit ;;
+	*) ;;
+    esac
+}
+network() {
+    chosen=$(printf "%s\\nnetworkmanager_dmenu" | $DMENU -i -p "Select display arangement:")
+    case "$chosen" in
+	"networkmanager_dmenu") networkmanager_dmenu; exit ;;
+	*) ;;
+    esac
+}
+
+# Get user choice including multi-monitor and manual selection:
+chosen=$(printf "%s\\naudio\\nnetwork\\ndisk" | $DMENU -i -p "Select display arangement:") &&
+case "$chosen" in
+	"audio") audio ;;
+	"network") network ;;
+        "disk") disk ;;
+        "power") power ;;
+	*) ;;
+esac
