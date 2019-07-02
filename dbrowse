@@ -1,6 +1,6 @@
 #!/bin/sh
 # TODO: multisel
-DMENU="/home/ljurk/.scripts/dme"
+DMENU="rofi -dmenu"
 target="$1"
 [ -z "$target" ] && target="$(realpath .)"
 prompt="$2"

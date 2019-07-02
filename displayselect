@@ -5,7 +5,7 @@
 # User may also select "manual selection" which opens arandr.
 # I plan on adding a routine from multi-monitor setups later.
 
-DMENU="/home/ljurk/.scripts/dme"
+DMENU="rofi -dmenu"
 
 twoscreen() { # If multi-monitor is selected and there are two screens.
 

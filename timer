@@ -1,5 +1,5 @@
 #!/bin/bash
-DMENU="/home/ljurk/.scripts/dme"
+DMENU="rofi -dmenu"
 dest="/home/ljurk/.config/i3blocks/scripts/.timerfile"
 
 unit=$(printf "seconds\\nminutes\\nhours" | $DMENU "Unit?")
