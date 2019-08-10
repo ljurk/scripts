@@ -3,4 +3,4 @@
 dd bs=4M if="$2" of="$1" conv=fsync
 mount "$1p1" /mnt
 touch /mnt/ssh
-mount "$1p1"
+umount "$1p1"
