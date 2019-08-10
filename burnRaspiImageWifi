@@ -1,0 +1,17 @@
+#!/bin/bash
+#param 1 = path to sd card; param 2 = img file;param 3 = Wifi name;param 4 = wifi password
+dd bs=4M if="$2" of="$1"conv=fsync
+mount "$1p1" /mnt
+touch /mnt/ssh
+
+echo "country=us"> /mnt/wpa_supplicant.conf
+
+echo 'update_config=1'>>/mnt/wpa_supplicant.conf
+echo 'ctrl_interface=/var/run/wpa_supplicant'>>/mnt/wpa_supplicant.conf
+echo ''>>/mnt/wpa_supplicant.conf
+echo 'network={'>>/mnt/wpa_supplicant.conf
+echo "ssid=$3">>/mnt/wpa_supplicant.conf
+echo "psk=$4">>/mnt/wpa_supplicant.conf
+echo '}'>>/mnt/wpa_supplicant.conf
+
+umount "$1p1"
