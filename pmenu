@@ -1,4 +1,5 @@
 #!/bin/bash
+DMENU="rofi -dmenu"
 
 # Program list
 programs_name=$(pactl list sink-inputs | grep -Po 'binary = "\K[^"]*')
@@ -10,6 +11,7 @@ sinks_name=$(pactl list sinks | grep -Po 'Description: \K.*')
 
 sinks_index=$(pactl list sinks | grep -Po '(?<=Sink #).*')
 
+OLDIFS=$IFS
 # Format values n' what not
 IFS=$'\n' p_n_db=($programs_name)
 p_n_size=${#p_n_db[@]}+1
@@ -23,10 +25,11 @@ s_n_size=${#s_n_db[@]}+1
 IFS=$'\n' s_i_db=($sinks_index)
 s_i_count=${#s_i_db[@]}
 
+IFS=$OLDIFS
 
-ret_prog=$(printf '%s' "$programs_name" | dme -l $p_n_size)
+ret_prog=$(printf '%s' "$programs_name" | $DMENU)
 
-ret_sink=$(printf '%s' "$sinks_name" | dme -l $s_n_size)
+ret_sink=$(printf '%s' "$sinks_name" | $DMENU)
 
 # Get indexes of ret_prog and ret_sink in *_name_db
 for (( i = 0; i < ${#p_n_db[@]}; i++ )); do
