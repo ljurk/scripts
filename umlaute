@@ -3,5 +3,5 @@ DMENU="rofi -dmenu"
 dest="/home/ljurk/.config/i3blocks/scripts/.timerfile"
 
 unit=$(printf "ü\\nÜ\\nä\\nÄ\\nö\\nÖ\\nß" | $DMENU "which one?")
-echo "$unit" | xclip -selection c
+echo -n "$unit" | xclip -selection c
 notify-send "'$unit' copied to clipboard"
