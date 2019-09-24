@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkdir $1
+mkdir $1/tasks
+mkdir $1/templates
+mkdir $1/defaults
+echo "---" >> $1/tasks/main.yml
+echo "---" >> $1/defaults/main.yml
+echo "# $1" >> $1/readme.md
