@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DMENU="rofi -dmenu"
+#get all known hosts from ~/.ssh/known_hosts
+hosts=$(cat ~/.ssh/known_hosts | awk '{ print $1 }' | sed -e 's/.*[1-2].*//g' -e '/^$/d')
+match=$(printf "$hosts" | $DMENU)
+termite -e "ssh $match"
