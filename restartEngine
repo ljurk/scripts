@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DMENU="rofi -dmenu"
+#get all known hosts from ~/.ssh/known_hosts
+hosts="qsmod-selma\nldi1-selma\nldi2-selma\ntest-selma\ndev-selma"
+match=$(printf "$hosts" | $DMENU)
+ssh cmgraylog "cd /opt/ansible && ansible $match -m include_role -a name=broker"
+notify-send "$match restarted"
