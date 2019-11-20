@@ -1,0 +1,2 @@
+#!/bin/bash
+source $HOME/projects/dmenujira/venv/bin/activate && python $HOME/projects/dmenujira/main.py show --user ljurk
