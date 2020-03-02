@@ -1,2 +1,0 @@
-#!/bin/bash
-dmenu -nb '#191919' -nf '#2aa198' -sb '#2aa198' -sf '#191919' -fn 'DejaVu Sans Mono for Powerline-14'
