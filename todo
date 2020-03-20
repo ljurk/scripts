@@ -6,7 +6,7 @@
 # add it.
 #
 
-DMENU="/home/ljurk/.scripts/dme"
+DMENU="rofi -dmenu"
 file="$HOME/.todo"
 touch "$file"
 height=$(wc -l "$file" | awk '{print $1}')
