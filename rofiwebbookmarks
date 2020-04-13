@@ -1,0 +1,2 @@
+#!/bin/sh
+sr -browser="$BROWSER" "$(sed '/^$/d;/^#/d;/^\//d' ~/.config/surfraw/bookmarks | rofi -dmenu -mesg ">>> Edit to add new bookmarks at ~/.config/surfraw/bookmarks" -i -p "bookmarks: ")"
