@@ -2,5 +2,6 @@
 # sr -elvi >> list of all possible engines
 engines="google;duckduckgo;aur;youtube;commandlinefu;archwiki"
 choice=$(echo -e "${engines//;/\\n}" | rofi -dmenu -p "engine")
+[[ -z "$choice" ]] && { exit; }
 query=$(rofi -dmenu -p "websearch")
 sr -browser="$BROWSER" "$choice" "$query"
