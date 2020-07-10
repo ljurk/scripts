@@ -1,3 +1,4 @@
 #!/bin/bash
-find /home/ljurk/.local/share/remmina -maxdepth 1 -type f | rofi -dmenu | xargs xdg-open
+cd /home/ljurk/.local/share/remmina || exit
+find . -maxdepth 1 -type f | rofi -dmenu | xargs xdg-open
 
