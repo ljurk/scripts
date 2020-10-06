@@ -31,7 +31,7 @@ killrecording() {
 
 chooseMonitor() {
     # prints SIZE OFFSET
-    monitors=$(xrandr --query | grep " connected" |sed ' s/(.*//g')
+    monitors=$(xrandr --query | grep " connected" | sed 's/primary//g' |sed ' s/(.*//g')
     choosen=$(echo "$monitors" | rofi -dmenu | awk '{print $3;}')
     echo -n "$(echo "$choosen" | awk -F "+" '{print $1" ";}')"
     echo "$choosen" | awk -F "+" '{print ":0.0+"$2","$3;}'
@@ -47,7 +47,7 @@ screencast() { \
 	-framerate 60 \
         -s "$size" \
         -i "$offset" \
-	-f alsa -i default \
+	-f jack -i default \
 	-r 30 \
  	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
 	"$dest$(date '+%y%m%d-%H%M-%S').mp4" &
